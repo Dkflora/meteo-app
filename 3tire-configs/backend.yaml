@@ -29,9 +29,9 @@ spec:
     spec:
       containers:
         - name: backend
-          image: piyushsachdeva/backend
+          image: dkflora/vue-app:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           env:
             - name: DB_HOST
               valueFrom:
@@ -78,13 +78,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 80
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
 ---
@@ -98,8 +98,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 80
+      targetPort: 80
       protocol: TCP
   selector:
     app: backend
