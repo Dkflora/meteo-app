@@ -8,10 +8,10 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:008984192600:certificate/cefe7203-985b-430e-a018-d13435f467e8 # Add the arn number of your ACM certification here
+    alb.ingress.kubernetes.io/certificate-arn:  # Add the arn number of your ACM certification here
 spec:
   rules:
-  - host: frontend.dkchris.com # subdomain for app1 modify to put your own subdomain 
+  - host:  # subdomain for app1 modify to put your own subdomain 
     http:
       paths:
       - path: /
@@ -21,7 +21,7 @@ spec:
             name: frontend
             port:
               number: 80
-  - host: backend.dkchris.com # subdomain for app2 moify to put your own subdomain
+  - host: # subdomain for app2 moify to put your own subdomain
     http:
       paths:
       - path: /
